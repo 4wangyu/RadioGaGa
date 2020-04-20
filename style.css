@@ -1,7 +1,26 @@
 @import url(https://fonts.googleapis.com/css?family=Coda+Caption:800);
+/* ---- reset ---- */
 body {
-background: #DB5A48;
+  display: flex;
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
 }
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+/* ---- tsparticles container ---- */
+#tsparticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
 #size1, #size2, #size3, #size4 {
 position: absolute;
 left: -9999px;
@@ -61,7 +80,7 @@ border-radius: 50%;
 #nes {
 	width: 45em;
 	height: 15em;
-	margin: 140px auto;
+	margin: 244px auto;
 	position: relative;
 	color: #B62F28;
 	font-family: 'Coda Caption', sans-serif;
