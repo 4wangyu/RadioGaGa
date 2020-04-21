@@ -166,37 +166,38 @@ function renderParticule(e) {
   for (var t = 0; t < e.animatables.length; t++) e.animatables[t].target.draw();
 }
 function animateParticules(e, t) {
-  for (var a = createCircle(e, t), n = [], i = 0; i < numberOfParticules; i++)
+  // var a = createCircle(e, t);
+  for (n = [], i = 0; i < numberOfParticules; i++) {
     n.push(createParticule(e, t));
-  anime
-    .timeline()
-    .add({
-      targets: n,
-      x: function (e) {
-        return e.endPos.x;
-      },
-      y: function (e) {
-        return e.endPos.y;
-      },
-      radius: 0.1,
-      duration: anime.random(1200, 1800),
-      easing: "easeOutExpo",
-      update: renderParticule,
-    })
-    .add({
-      targets: a,
-      radius: anime.random(80, 160),
-      lineWidth: 0,
-      alpha: {
-        value: 0,
-        easing: "linear",
-        duration: anime.random(600, 800),
-      },
-      duration: anime.random(1200, 1800),
-      easing: "easeOutExpo",
-      update: renderParticule,
-      offset: 0,
-    });
+  }
+
+  anime.timeline().add({
+    targets: n,
+    x: function (e) {
+      return e.endPos.x;
+    },
+    y: function (e) {
+      return e.endPos.y;
+    },
+    radius: 0.1,
+    duration: anime.random(1200, 1800),
+    easing: "easeOutExpo",
+    update: renderParticule,
+  });
+  // .add({
+  //   targets: a,
+  //   radius: anime.random(80, 160),
+  //   lineWidth: 0,
+  //   alpha: {
+  //     value: 0,
+  //     easing: "linear",
+  //     duration: anime.random(600, 800),
+  //   },
+  //   duration: anime.random(1200, 1800),
+  //   easing: "easeOutExpo",
+  //   update: renderParticule,
+  //   offset: 0,
+  // });
 }
 function debounce(fn, delay) {
   var timer;
