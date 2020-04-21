@@ -92,13 +92,13 @@ var audioSrc =
   "https://radiogaga-server.df.r.appspot.com/bruni/outputlist.m3u8";
 var hls = new Hls();
 hls.loadSource(audioSrc);
+hls.attachMedia(audio);
 var audioControl = document.getElementById("power");
 
 function playPause() {
   if (audioControl.checked) {
-    hls.attachMedia(audio);
     audio.play();
   } else {
-    hls.detachMedia(audio);
+    audio.pause();
   }
 }
