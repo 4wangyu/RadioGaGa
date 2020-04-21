@@ -20,6 +20,14 @@ canvas {
   background-position: 50% 50%;
 }
 
+.fireworks {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 99999999;
+  pointer-events: none;
+}
+
 #size1,
 #size2,
 #size3,
