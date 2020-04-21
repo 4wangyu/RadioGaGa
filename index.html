@@ -37,7 +37,7 @@
 
     <div class="nes-bottom">
       <div class="power-box">
-        <input type="checkbox" id="power" />
+        <input type="checkbox" id="power" onchange="playPause()" />
         <!-- <div class="reset"></div> -->
         <label for="power" class="power"></label>
         <div class="light"></div>
@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  <audio id="audio"></audio>
+  <audio loop id="audio"></audio>
 
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.12.11/dist/tsparticles.min.js"></script>

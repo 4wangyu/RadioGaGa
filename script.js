@@ -90,22 +90,15 @@ tsParticles.load("tsparticles", {
 var audio = document.getElementById("audio");
 var audioSrc =
   "https://radiogaga-server.df.r.appspot.com/bruni/outputlist.m3u8";
-if (Hls.isSupported()) {
-  var hls = new Hls();
-  hls.loadSource(audioSrc);
-  hls.attachMedia(audio);
-  hls.on(Hls.Events.MANIFEST_PARSED, function () {
+var hls = new Hls();
+hls.loadSource(audioSrc);
+var audioControl = document.getElementById("power");
+
+function playPause() {
+  if (audioControl.checked) {
+    hls.attachMedia(audio);
     audio.play();
-  });
-}
-// hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
-// When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element through the `src` property.
-// This is using the built-in support of the plain video element, without using hls.js.
-// Note: it would be more normal to wait on the 'canplay' event below however on Safari (where you are most likely to find built-in HLS support) the video.src URL must be on the user-driven
-// white-list before a 'canplay' event will be emitted; the last video event that can be reliably listened-for when the URL is not on the white-list is 'loadedmetadata'.
-else if (audio.canPlayType("application/vnd.apple.mpegurl")) {
-  audio.src = audioSrc;
-  audio.addEventListener("loadedmetadata", function () {
-    audio.play();
-  });
+  } else {
+    hls.detachMedia(audio);
+  }
 }
