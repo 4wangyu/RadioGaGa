@@ -3,6 +3,7 @@ body {
   display: flex;
   margin: 0;
   font: normal 75% Arial, Helvetica, sans-serif;
+  cursor: url(./space-shuttle.png), auto;
 }
 canvas {
   display: block;
@@ -558,7 +559,7 @@ h1 {
 .power,
 .reset {
   position: absolute;
-  cursor: pointer;
+  cursor: url(./space-shuttle.png), auto;
   width: 6em;
   line-height: 3.8em;
   height: 2.8em;
